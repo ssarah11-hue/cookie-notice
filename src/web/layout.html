@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>UIS Cookie Banner</title>
+    <title>Illinois Cookie Banner</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='//cdn.toolkit.illinois.edu' />
     <link rel='dns-prefetch' href='//cdn.disability.illinois.edu' />
@@ -42,7 +42,13 @@
             font-size: 18px;
             line-height: 1.6666666667em;
             font-family: var(--il-font-sans);
-            color: var(--il-text-color);
+        }
+
+        p, h2 {
+            /* Test for CSS bug that can break contrast. */
+            /* This CSS should lose to CSS in the Cookie Notice files. */
+            color: black;
+            font-family: "proxima-nova-alt", sans-serif;
         }
 
         a {
@@ -97,7 +103,7 @@
 
         <div class="page-wrapper" style="margin-bottom: 30px;">
             <div>
-                <h1>UIS Cookie Banner</h1>
+                <h1>Illinois Cookie Banner</h1>
                 <p>
                     Provides a Cookie Notification Banner that includes
                     buttons to open a slideout where more information can
@@ -132,9 +138,8 @@
                 <p>
                     The Cookie Banner is presented after loading this page
                 </p>
-                <p><a href="Cookie-Banner.html">Illinois example here.</a></p>
-                <p><a href="Cookie-Banner-UIC.html">UIC example here.</a></p>
-                <p><a href="Cookie-Banner-CSP.html">Content Security Policy example here.</a></p>
+                {% block pagelinks %}
+                {% endblock %}
                 <button type="button" id="ot-sdk-btn" class="ot-sdk-show-settings il-button">
                     About Cookies
                 </button>
@@ -176,11 +181,12 @@
         </il-footer>
     </footer><!-- #colophon -->
 
-    <script data-domain-script="uis" src="js/ila-cookie-banner.js"></script>
     <script src="js/ila-slideover.js"></script>
-    <!--
-    data-comain-script="698d1fb7-b06b-4591-adbf-ac44ae3ef77b" also works
-    -->
+    {% block scriptlinks %}
+      <script src="js/ila-cookie-banner.js"></script>
+    {% endblock %}
+    {% block serversideincludes %}
+    {% endblock %}
 </body>
 
 </html>

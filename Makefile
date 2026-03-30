@@ -11,7 +11,7 @@ tail:
 	tail -f .server.logs
 
 kill:
-	-kill -f $$(cat .server)
+	-kill -9 $$(cat .server)
 	-rm -f .server
 
 venv: .venv
@@ -22,3 +22,4 @@ venv: .venv
 
 clean: kill
 	-rm -f .server.logs
+	-rm -rf .venv
