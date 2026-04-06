@@ -11,8 +11,7 @@ tail:
 	tail -f .server.logs
 
 kill:
-	-kill -9 $$(cat .server)
-	-rm -f .server
+	-pkill -P $$(cat .server)
 
 venv: .venv
 .venv: requirements-test.in
